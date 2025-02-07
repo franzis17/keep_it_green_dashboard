@@ -92,8 +92,7 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-        'CONN_MAX_AGE': 60,                         # Connection timeout
+        'PORT': os.getenv('DB_PORT', '5434'),
         'OPTIONS': {
             # In production, require ssl
             'sslmode': 'require' if not DEBUG else 'disable'
