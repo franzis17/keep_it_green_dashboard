@@ -7,6 +7,5 @@ Many sectors in Australia face challenges related to carbon emissions and energy
 A personal purpose of making this application is to understand all mechanics of developing a 
 full-stack software web application.
 
-# What I have learned so far
-- Difference applications of production and development environment
-
+# Tech Stack
+<img src="./images/tech_stack.jpg" alt="Tech Stack" width="600">
