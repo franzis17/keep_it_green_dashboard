@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from .models import ElectricityEmission
 from .serializers import ElectricityEmissionSerializer
@@ -8,6 +9,7 @@ from .serializers import ElectricityEmissionSerializer
 class ElectricityEmissionViewSet(viewsets.ModelViewSet):
     queryset = ElectricityEmission.objects.all()
     serializer_class = ElectricityEmissionSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]  # Allow view access but not modify
     
     def list(self, request):
         emissions = self.get_queryset()
