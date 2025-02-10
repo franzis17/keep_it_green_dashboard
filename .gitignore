@@ -1,4 +1,11 @@
+# common
 .env
 *.env
 !.env.example
+
+# backend (django)
+**/__pycache__/
+**/db.sqlite3
+
+# frontend (react)
 */node_modules
