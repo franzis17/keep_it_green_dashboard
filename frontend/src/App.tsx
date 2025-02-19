@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts'
 import { Emission, EmissionsResponse } from './types'
 
 function App() {
@@ -38,19 +38,42 @@ function App() {
           width={800}
           height={400}
           data={emissions}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 20, right: 30, left: 60, bottom: 40 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
+          
           <XAxis 
             dataKey="date" 
             tickFormatter={(date) => new Date(date).toLocaleDateString()}
-          />
-          <YAxis />
+          >
+            <Label
+              value="Date"
+              position="bottom"
+              offset={20}  // distance from axis
+            />
+          </XAxis>
+          <YAxis>
+            <Label
+              value="C0₂ Emissions (kg)"
+              angle={-90}
+              position="left"
+              offset={40}
+            />
+          </YAxis>
+          
           <Tooltip 
             labelFormatter={(date) => new Date(date).toLocaleDateString()}
             formatter={(value) => [`${Number(value).toFixed(2)} kg`, 'CO₂ Emissions']}
           />
-          <Legend />
+          <Legend
+            align="right"
+            verticalAlign="middle"
+            layout="vertical"
+            wrapperStyle={{
+              marginLeft: "30px",
+              paddingLeft: "20px"
+            }}
+          />
           <Line 
             type="monotone" 
             dataKey="co2_emissions" 
