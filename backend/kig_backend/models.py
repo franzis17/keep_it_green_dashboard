@@ -18,8 +18,8 @@ class ElectricityEmission(models.Model):
     
     date = models.DateField(default=timezone.now)
     
-    # Average emission factor: 0.417 kg CO2 per kWh
-    EMISSION_FACTOR = Decimal('0.417')
+    # Average emission factor in Perth, WA is 0.67
+    EMISSION_FACTOR = Decimal('0.67')
     
 
     class Meta:
